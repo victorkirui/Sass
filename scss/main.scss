@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+@import "./config";
+
+body,html{
+    height:100%;  
+}
+
+.container{
+    @include tablet{
+        width:80%;
+        margin:0px auto;
+        padding:2vw 0;
+    }
+    
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    margin:0;
+    #bg{
+        clip-path: polygon(100% 0, 100% 74%, 49% 100%, 0 100%, 0 0);
+        background:$primary-color;
+        height:100vh;
+        width:100%;
+        position:absolute;
+        z-index:-1;
+
+        @include tablet{
+            clip-path: polygon(0 0, 80% 0, 55% 100%, 0% 100%);
+        }
+    }
+    .logo{
+        font-weight:600;
+        font-size:1.5em;
+        padding:$padding;
+        color:#fff;
+        text-transform: uppercase;
+    }
+}
+section{
+    @include tablet{
+        @include gridcols;
+    }
+    ul{
+        @include tablet{
+            grid-area: aside;
+            padding:$padding * 2;
+            margin:20px 0;
+        }
+        background:#fff;
+        box-shadow:0 10px 30px rgba(0,0,0,0.2);
+        position: relative;
+        list-style: none;
+        border-radius: $border;
+        padding:$padding;
+        margin:1em;
+        li{
+            margin:15px 0;
+            margin-left:max(50px);
+            line-height:30px;
+            span{
+                position:absolute;
+                left: 25px;
+                width:30px;
+                height:30px;
+                border-radius:50%;
+                margin-right: 10px;;
+                background-color:lighten($primary-color, 40%);
+            }
+        }
+    }
+
+    main{
+        @include tablet{
+            grid-area: main;
+            text-align:left;
+        }
+        text-align: center;
+        color:#fff;
+        padding:10px;
+        margin-top:0;
+        h1{
+            font-size: 2.5em;
+            line-height: 1em;
+            @include tablet{
+                font-size: 2.5em;
+                line-height: 1.2em;
+            }
+        }
+        p{
+            font-size:20px;
+            @include tablet{
+                font-size:27px;
+            }
+        }
+        a{
+            display:inline-block;
+            text-decoration:none;
+            background-color: $secondary-color;
+            padding:$padding;
+            border-radius:$border;
+            color:#000;
+            margin-top:10px;
+            @include tablet{
+                margin-top:30px;
+                font-size:20px;
+                padding:$padding $padding * 4;
+            }
+        }
+    }
+}

@@ -1,0 +1,25 @@
+$primary-color:#005DFF;
+$secondary-color:#FFF6BB;
+$padding:15px;
+$border:15px;
+
+$tablet:768px;
+$mobile:425px;
+
+@mixin gridcols{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "main aside";
+    align-items: center;
+}
+
+@mixin tablet {
+    @media (min-width:#{$tablet}){
+        @content;
+    }   
+}
+@mixin mobile {
+    @media (min-width:#{$mobile}){
+        @content;
+    }   
+}
